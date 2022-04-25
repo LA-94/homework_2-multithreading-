@@ -1,5 +1,7 @@
 package ru.digitalhabbits.homework2;
 
+import lombok.NonNull;
+
 import java.io.File;
 import java.util.Map;
 
@@ -8,6 +10,6 @@ import java.util.Map;
  */
 public interface FileLetterCounter {
 
-    Map<Character, Long> count(File input);
+    Map<Character, Long> count(@NonNull File input);
 
 }

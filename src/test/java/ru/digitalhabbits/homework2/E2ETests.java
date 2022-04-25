@@ -1,22 +1,22 @@
 package ru.digitalhabbits.homework2;
 
-import static com.google.common.io.Resources.getResource;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.assertj.core.api.Assertions.entry;
-
 import org.junit.jupiter.api.Test;
+import ru.digitalhabbits.homework2.impl.FileLetterCounterFactoryImpl;
 
 import java.io.File;
 import java.util.Map;
 
-import ru.digitalhabbits.homework2.impl.AsyncFileLetterCounter;
+import static com.google.common.io.Resources.getResource;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.entry;
 
 public class E2ETests {
 
     @Test
     void async_file_letter_counting_should_return_predicted_count() {
         var file = getFile("test.txt");
-        var counter = new AsyncFileLetterCounter();
+        Factory<FileLetterCounter> letterCounterFactory = new FileLetterCounterFactoryImpl();
+        var counter = letterCounterFactory.create();
 
         Map<Character, Long> count = counter.count(file);
 

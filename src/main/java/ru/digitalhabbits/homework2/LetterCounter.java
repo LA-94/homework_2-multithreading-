@@ -1,5 +1,7 @@
 package ru.digitalhabbits.homework2;
 
+import lombok.NonNull;
+
 import java.util.Map;
 
 /**
@@ -7,6 +9,6 @@ import java.util.Map;
  */
 public interface LetterCounter {
 
-    Map<Character, Long> count(String input);
+    Map<Character, Long> count(@NonNull String input);
 
 }
